@@ -1,0 +1,33 @@
+{
+  "name": "genpark-agentic-commerce-rfq-multi-vendor-bidding-arbiter-skill",
+  "version": "1.0.0",
+  "description": "Autonomous B2B RFQ (Request for Quote) Multi-Vendor Bidding Arbiter. Scores wholesale quotations across unit volume pricing, minimum order quantities (MOQ), landed tariffs, net payment terms (Net 30/60), and historical supplier lead-time reliability.",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.llinkedin.com/company/92955550",
+  "tools": [
+    {
+      "name": "arbitrate_vendor_bids",
+      "description": "Arbitrate multi-vendor RFQ bids and select the optimal supplier based on total landed cost and risk.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rfq_spec": {
+            "type": "object",
+            "description": "Part_number, target_quantity, required_delivery_days, max_unit_budget."
+          },
+          "vendor_bids": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Bids with vendor_name, unit_price_usd, moq, shipping_cost_usd, payment_terms_days, quality_rating_pct."
+          }
+        },
+        "required": [
+          "rfq_spec",
+          "vendor_bids"
+        ]
+      }
+    }
+  ]
+}
